@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".AppbarActivity"></activity>
-        <activity android:name=".ContactActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,7 +20,7 @@
 
         <activity android:name=".WelcomeActivity"/>
         <activity android:name=".ProfileActivity"/>
-<!--        <activity android:name=".ContactActivity"/>-->
+        <activity android:name=".ContactActivity"/>
     </application>
 
 </manifest>
