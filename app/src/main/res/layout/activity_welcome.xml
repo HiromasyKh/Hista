@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/welcome_appbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <include
+            android:id="@+id/welcome_appbar"
+            layout="@layout/activity_appbar" />
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/welcome_tab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        </com.google.android.material.tabs.TabLayout>
+        <androidx.viewpager2.widget.ViewPager2
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_below="@+id/welcome_appbar_layout"/>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/welcome_tab_pager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/welcome_appbar_layout">
+
+    </androidx.viewpager.widget.ViewPager>
+
+</RelativeLayout>

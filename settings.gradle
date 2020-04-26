@@ -1,0 +1,2 @@
+rootProject.name='Hista'
+include ':app'
