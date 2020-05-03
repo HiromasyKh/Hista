@@ -1,38 +1,41 @@
 package com.example.hista;
 
-import android.os.Bundle;
-import android.view.Menu;
-import android.widget.TableLayout;
-
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.viewpager.widget.ViewPager;
 
-import com.google.android.material.tabs.TabLayout;
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.ProgressBar;
+
+import com.github.ybq.android.spinkit.sprite.Sprite;
+import com.github.ybq.android.spinkit.style.ThreeBounce;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class WelcomeActivity extends AppCompatActivity {
 
-    private Toolbar toolbar;
-    private ViewPager viewPager;
-    private TabLayout tabLayout;
-    private TabAccessAdapter tabAccessAdapter;
+    private Timer timer;
+    private ProgressBar progressBar;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_welcome);
 
-        toolbar = (Toolbar) findViewById(R.id.welcome_appbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Hista");
+        progressBar = (ProgressBar)findViewById(R.id.spin_kit);
+        Sprite threeBounce = new ThreeBounce();
+        progressBar.setIndeterminateDrawable(threeBounce);
 
-        viewPager = (ViewPager) findViewById(R.id.welcome_tab_pager);
-        tabAccessAdapter = new TabAccessAdapter(getSupportFragmentManager());
-        viewPager.setAdapter(tabAccessAdapter);
-
-        tabLayout = (TabLayout) findViewById(R.id.welcome_tab);
-        tabLayout.setupWithViewPager(viewPager);
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        }, 5000);
     }
 }

@@ -7,6 +7,9 @@ import android.widget.ListView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.hista.Adapter.PersonAdapter;
+import com.example.hista.Model.PersonProfile;
+
 import java.util.ArrayList;
 
 public class ContactActivity extends AppCompatActivity {

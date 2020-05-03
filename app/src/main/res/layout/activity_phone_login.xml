@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PhoneLoginActivity"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <EditText
+        android:id="@+id/phone_number_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="25dp"
+        android:hint="@string/phone_hint"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        android:drawableRight="@drawable/ic_smartphone_carolina_blue_50dp"/>
+
+    <EditText
+        android:id="@+id/phone_number_verification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="25dp"
+        android:hint="@string/verification"
+        android:textStyle="bold"
+        android:visibility="gone"
+        android:textColor="@color/colorPrimary"/>
+
+    <Button
+        android:id="@+id/send_code_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:text="@string/send_code"
+        android:textAllCaps="false"
+        android:textSize="14sp"
+        android:textColor="@color/colorAccent"
+        android:background="@color/colorPrimary"/>
+
+    <Button
+        android:id="@+id/phone_number_verify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:paddingLeft="80dp"
+        android:paddingRight="80dp"
+        android:text="@string/verify_code"
+        android:textAllCaps="false"
+        android:textSize="14sp"
+        android:textColor="@color/colorAccent"
+        android:background="@color/colorPrimary"
+        android:visibility="gone"/>
+
+</LinearLayout>

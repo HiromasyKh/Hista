@@ -9,9 +9,45 @@
     <string name="search">Search</string>
     <string name="description_search">Description Search</string>
 
+    <!--    Hint-->
+    <string name="username">Username</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="write_sth">Write something...</string>
+    <string name="phone_hint">Phone number</string>
+    <string name="verification">Input number</string>
+
     <!--    Profile Strings-->
     <string name="my_profile">My Profile</string>
     <string name="message">Message</string>
     <string name="request">Request</string>
     <string name="setting">Setting</string>
+
+    <!--    Buttons-->
+    <string name="register_new_acc">Register new account</string>
+    <string name="login">Login</string>
+    <string name="phone">Phone</string>
+    <string name="register">Create new account</string>
+    <string name="update_profile">Update</string>
+    <string name="send_code">Send verification code</string>
+    <string name="verify_code">Verify</string>
+
+    <!--    menu-->
+    <string name="find_fri_menu">Find Friends</string>
+    <string name="create_group_menu">Create Group</string>
+    <string name="setting_menu">Setting</string>
+    <string name="logout_menu">Logout</string>
+    <string name="profile_menu">Profile</string>
+
+    <!--    Description-->
+    <string name="send_btn_des">Send Button</string>
+
+    <!--    Normal text-->
+    <string name="forget_password">Forget Password ?</string>
+    <string name="login_with">or login with</string>
+    <string name="already_has_acc">Already have an account?</string>
+    <string name="profile_status">Profile Status</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

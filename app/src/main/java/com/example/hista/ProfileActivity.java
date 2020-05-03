@@ -24,7 +24,5 @@ public class ProfileActivity extends AppCompatActivity {
 
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.HORIZONTAL);
         dividerItemDecoration.setDrawable(getResources().getDrawable(R.drawable.border_line));
-
-
     }
 }

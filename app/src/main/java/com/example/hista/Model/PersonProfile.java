@@ -1,4 +1,4 @@
-package com.example.hista;
+package com.example.hista.Model;
 
 public class PersonProfile {
     private String name;

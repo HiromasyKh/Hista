@@ -5,11 +5,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorAccent">
 
-    <include
-        android:id="@+id/profile_appbar"
-        layout="@layout/activity_appbar"
-        />
-
     <LinearLayout
         android:id="@+id/profileUpperLayout"
         android:layout_width="match_parent"
@@ -26,7 +21,7 @@
             android:src="@drawable/profile_image"
             app:civ_border_color="#ff000000"
             />
-        
+
         <TextView
             android:id="@+id/profileName"
             android:layout_width="wrap_content"

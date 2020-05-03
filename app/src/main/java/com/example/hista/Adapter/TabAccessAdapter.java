@@ -1,10 +1,15 @@
-package com.example.hista;
+package com.example.hista.Adapter;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+
+import com.example.hista.Fragments.ChatFragment;
+import com.example.hista.Fragments.GroupFragment;
+import com.example.hista.Fragments.ProfileFragment;
+import com.example.hista.Fragments.FriendFragment;
 
 public class TabAccessAdapter extends FragmentPagerAdapter {
     public TabAccessAdapter(@NonNull FragmentManager fm) {
@@ -19,12 +24,14 @@ public class TabAccessAdapter extends FragmentPagerAdapter {
                 ChatFragment chatFragment = new ChatFragment();
                 return chatFragment;
             case 1:
-                UserFragment userFragment = new UserFragment();
-                return userFragment;
-
+                GroupFragment groupFragment = new GroupFragment();
+                return groupFragment;
             case 2:
                 FriendFragment friendFragment = new FriendFragment();
                 return friendFragment;
+            case 3:
+                ProfileFragment profileFragment = new ProfileFragment();
+                return profileFragment;
             default:
                 return null;
         }
@@ -32,7 +39,7 @@ public class TabAccessAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 3;
+        return 4;
     }
 
     @Nullable
@@ -42,9 +49,11 @@ public class TabAccessAdapter extends FragmentPagerAdapter {
             case 0:
                 return "Chat";
             case 1:
-                return "User";
+                return "Group";
             case 2:
                 return "Friend";
+            case 3:
+                return "Profile";
             default:
                 return null;
         }

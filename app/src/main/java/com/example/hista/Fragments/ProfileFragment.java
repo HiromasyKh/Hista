@@ -1,4 +1,4 @@
-package com.example.hista;
+package com.example.hista.Fragments;
 
 import android.os.Bundle;
 
@@ -8,13 +8,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.hista.R;
+
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FriendFragment extends Fragment {
+public class ProfileFragment extends Fragment {
 
-    public FriendFragment() {
+    public ProfileFragment() {
         // Required empty public constructor
     }
 
@@ -23,6 +25,6 @@ public class FriendFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_friend, container, false);
+        return inflater.inflate(R.layout.fragment_profile, container, false);
     }
 }

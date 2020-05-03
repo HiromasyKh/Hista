@@ -1,6 +1,5 @@
-package com.example.hista;
+package com.example.hista.Adapter;
 
-import android.app.Person;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,20 +8,19 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.hista.Model.PersonProfile;
+import com.example.hista.R;
 import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
