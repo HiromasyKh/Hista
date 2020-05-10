@@ -1,4 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Hista</string>
+    <resources>
+        <string name="app_name">Hista</string>
+
+        <!--    @menu/top_app_bar-->
+        <string name="favorite">ចំណូលចិត្ត</string>
+        <string name="description_favorite">Description Favorite</string>
+        <string name="more">ច្រើនទៀត</string>
+        <string name="description_more">Description More</string>
+        <string name="search">ស្វែងរក</string>
+        <string name="description_search">Description Search</string>
+
+        <!--    Hint-->
+        <string name="username">Username</string>
+        <string name="email">អុីម៊ែល</string>
+        <string name="password">ពាក្យសម្ងាត់</string>
+        <string name="write_sth">សរសេរ...</string>
+        <string name="phone_hint">លេខទូរស័ព្ទ</string>
+        <string name="verification">ដាក់លេខចូល</string>
+
+        <!--    Profile Strings-->
+        <string name="my_profile">My Profile</string>
+        <string name="message">Message</string>
+        <string name="request">Request</string>
+        <string name="setting">Setting</string>
+
+        <!--    Buttons-->
+        <string name="register_new_acc">Register new account</string>
+        <string name="login">ចូល</string>
+        <string name="phone">ទូរស័ព្ទ</string>
+        <string name="register">បង្កើត</string>
+        <string name="update_profile">ផ្លាស់ប្តូរ</string>
+        <string name="send_code">ផ្ញើលេងបញ្ជាក់</string>
+        <string name="verify_code">បញ្ជាក់</string>
+
+        <!--    menu-->
+        <string name="find_fri_menu">Find Friends</string>
+        <string name="create_group_menu">Create Group</string>
+        <string name="setting_menu">Setting</string>
+        <string name="logout_menu">Logout</string>
+        <string name="profile_menu">Profile</string>
+
+        <!--    Description-->
+        <string name="send_btn_des">Send Button</string>
+
+        <!--    Normal text-->
+        <string name="forget_password">Forget Password ?</string>
+        <string name="login_with">or login with</string>
+        <string name="already_has_acc">Already have an account?</string>
+        <string name="profile_status">Profile Status</string>
+
+        <!-- TODO: Remove or change this placeholder text -->
+        <string name="hello_blank_fragment">Hello blank fragment</string>
+    </resources>
+
 </resources>
