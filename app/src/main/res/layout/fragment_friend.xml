@@ -6,12 +6,11 @@
     tools:context=".Fragments.FriendFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Friend Fragment"
-        android:textSize="23dp"
-        android:textStyle="bold"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/friends_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </androidx.recyclerview.widget.RecyclerView>
 
 </RelativeLayout>

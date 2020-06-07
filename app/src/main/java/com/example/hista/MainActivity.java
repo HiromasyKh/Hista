@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.welcome_appbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Hista");
+        getSupportActionBar().setTitle(R.string.app_name);
 
         viewPager = (ViewPager) findViewById(R.id.welcome_tab_pager);
         tabAccessAdapter = new TabAccessAdapter(getSupportFragmentManager());

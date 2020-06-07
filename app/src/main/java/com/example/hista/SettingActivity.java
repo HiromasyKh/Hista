@@ -75,7 +75,7 @@ public class SettingActivity extends AppCompatActivity {
             Toast.makeText(SettingActivity.this, "Please write your user name", Toast.LENGTH_SHORT).show();
         } else if (TextUtils.isEmpty(status)) {
             Toast.makeText(SettingActivity.this, "Please write your status", Toast.LENGTH_SHORT).show();
-        } else if (TextUtils.isEmpty(name) && TextUtils.isEmpty(status)){
+        } else if (TextUtils.isEmpty(name) && TextUtils.isEmpty(status)) {
             Toast.makeText(SettingActivity.this, "Please write your user name and status", Toast.LENGTH_SHORT).show();
         } else {
             HashMap<String, String> profileMap = new HashMap<>();

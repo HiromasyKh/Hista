@@ -6,12 +6,12 @@
     tools:context=".Fragments.ChatFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Chat Fragment"
-        android:textSize="23dp"
-        android:textStyle="bold"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chat_view_adapter"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
 
 </RelativeLayout>

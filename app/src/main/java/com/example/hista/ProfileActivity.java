@@ -22,7 +22,5 @@ public class ProfileActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_profile);
 
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.HORIZONTAL);
-        dividerItemDecoration.setDrawable(getResources().getDrawable(R.drawable.border_line));
     }
 }
