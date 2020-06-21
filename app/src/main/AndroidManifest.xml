@@ -4,6 +4,8 @@
     package="com.example.hista">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -11,14 +13,17 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".PhoneLoginActivity" />
-        <activity android:name=".GroupChatActivity" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".AppbarActivity" />
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+
+
+        <activity android:name=".Activity.PhoneLoginActivity" />
+        <activity android:name=".Activity.GroupChatActivity" />
+        <activity android:name=".Activity.RegisterActivity" />
+        <activity android:name=".Activity.LoginActivity" />
+        <activity android:name=".Activity.AppbarActivity" />
         <activity
-            android:name=".WelcomeActivity"
+            android:name=".Activity.WelcomeActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -27,10 +32,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".ProfileActivity" />
-        <activity android:name=".ContactActivity" />
-        <activity android:name=".SettingActivity" />
+        <activity android:name=".Activity.MainActivity" />
+        <activity android:name=".Activity.ProfileActivity" />
+        <activity android:name=".Activity.ContactActivity" />
+        <activity android:name=".Activity.SettingActivity" />
     </application>
 
 </manifest>

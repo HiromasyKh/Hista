@@ -11,10 +11,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.hista.Model.Chat;
 import com.example.hista.Model.Users;
 import com.example.hista.R;
-import com.example.hista.FriendViewHolder;
+import com.example.hista.ViewHolder.FriendViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;

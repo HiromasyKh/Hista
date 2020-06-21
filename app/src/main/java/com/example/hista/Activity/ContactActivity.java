@@ -1,4 +1,4 @@
-package com.example.hista;
+package com.example.hista.Activity;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.hista.Adapter.PersonAdapter;
 import com.example.hista.Model.PersonProfile;
+import com.example.hista.R;
 
 import java.util.ArrayList;
 

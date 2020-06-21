@@ -1,4 +1,4 @@
-package com.example.hista;
+package com.example.hista.Activity;
 
 import android.app.Person;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.widget.ListView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
+
+import com.example.hista.R;
 
 import java.util.ArrayList;
 

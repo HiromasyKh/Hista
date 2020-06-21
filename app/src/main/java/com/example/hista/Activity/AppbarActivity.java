@@ -1,10 +1,12 @@
-package com.example.hista;
+package com.example.hista.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.view.Menu;
+
+import com.example.hista.R;
 
 public class AppbarActivity extends AppCompatActivity {
 
@@ -19,7 +21,7 @@ public class AppbarActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setTitle("Hosta");
+        getSupportActionBar().setTitle(R.string.app_name);
         getSupportActionBar().setIcon(R.drawable.ic_search_white_50dp);
     }
 }

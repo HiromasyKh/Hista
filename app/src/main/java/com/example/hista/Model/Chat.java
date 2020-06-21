@@ -2,18 +2,20 @@ package com.example.hista.Model;
 
 import android.widget.ImageView;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class Chat {
-    private ImageView imageView;
+    private String profileImage;
     private String name;
     private String chatContent;
-    private long sentTime;
+    private String sentTime;
 
-    public ImageView getImageView() {
-        return imageView;
+    public String getProfileImage() {
+        return profileImage;
     }
 
-    public void setImageView(ImageView imageView) {
-        this.imageView = imageView;
+    public void setProfileImage(String profileImage) {
+        this.profileImage = profileImage;
     }
 
     public String getName() {
@@ -32,11 +34,11 @@ public class Chat {
         this.chatContent = chatContent;
     }
 
-    public long getSentTime() {
+    public String getSentTime() {
         return sentTime;
     }
 
-    public void setSentTime(long sentTime) {
+    public void setSentTime(String sentTime) {
         this.sentTime = sentTime;
     }
 }
