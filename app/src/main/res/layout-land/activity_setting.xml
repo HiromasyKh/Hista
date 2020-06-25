@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorAccent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/welcome_appbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <include
+            android:id="@+id/welcome_appbar"
+            layout="@layout/activity_appbar" />
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/welcome_tab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        </com.google.android.material.tabs.TabLayout>
+        <androidx.viewpager2.widget.ViewPager2
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_below="@+id/welcome_appbar_layout"/>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:id="@+id/profile_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/welcome_appbar_layout"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image_view"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/profile_image"
+            app:civ_border_width="3dp"
+            app:civ_border_color="#000000" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/profile_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profile_image"
+        android:layout_marginTop="5dp"
+        android:paddingLeft="30dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@color/colorPrimary">
+
+        <EditText
+            android:id="@+id/set_username"
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:hint="@string/username"
+            android:inputType="text"
+            android:textColor="@color/colorAccent"
+            android:textColorHint="@color/colorAccent"/>
+
+        <EditText
+            android:id="@+id/set_status"
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:hint="@string/profile_status"
+            android:inputType="text"
+            android:textColor="@color/colorAccent"
+            android:textColorHint="@color/colorAccent"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/update_profile_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profile_detail"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
+        android:layout_centerInParent="true"
+        android:text="@string/update_profile"
+        android:textAllCaps="false"
+        android:textSize="15sp"
+        android:textColor="@color/colorAccent"
+        android:background="@color/colorPrimary"
+        android:textStyle="bold"/>
+
+</RelativeLayout>

@@ -19,13 +19,13 @@
         <string name="verification">ដាក់លេខចូល</string>
 
         <!--    Profile Strings-->
-        <string name="my_profile">My Profile</string>
-        <string name="message">Message</string>
-        <string name="request">Request</string>
-        <string name="setting">Setting</string>
+        <string name="my_profile">ប្រវត្តិរូប</string>
+        <string name="message">សារ</string>
+        <string name="request">សំុ</string>
+        <string name="setting">ការកំណត់</string>
 
         <!--    Buttons-->
-        <string name="register_new_acc">Register new account</string>
+        <string name="register_new_acc">បង្កើតគណនីថ្មី</string>
         <string name="login">ចូល</string>
         <string name="phone">ទូរស័ព្ទ</string>
         <string name="register">បង្កើត</string>
@@ -34,20 +34,20 @@
         <string name="verify_code">បញ្ជាក់</string>
 
         <!--    menu-->
-        <string name="find_fri_menu">Find Friends</string>
-        <string name="create_group_menu">Create Group</string>
-        <string name="setting_menu">Setting</string>
-        <string name="logout_menu">Logout</string>
-        <string name="profile_menu">Profile</string>
+        <string name="find_fri_menu">ស្វែងរកមិត្តភក្តិ</string>
+        <string name="create_group_menu">បង្កើតក្រុមថ្មី</string>
+        <string name="setting_menu">ការកំណត់</string>
+        <string name="logout_menu">ចេញ</string>
+        <string name="profile_menu">ប្រវត្តិរូប</string>
 
         <!--    Description-->
-        <string name="send_btn_des">Send Button</string>
+        <string name="send_btn_des">ប៊ូតុងផ្ញើ</string>
 
         <!--    Normal text-->
-        <string name="forget_password">Forget Password ?</string>
-        <string name="login_with">or login with</string>
-        <string name="already_has_acc">Already have an account?</string>
-        <string name="profile_status">Profile Status</string>
+        <string name="forget_password">ភ្លេចលេខសម្ងាត់?</string>
+        <string name="login_with">រឺចូលជាមួយ</string>
+        <string name="already_has_acc">មានគណនីរួចហើយ?</string>
+        <string name="profile_status">សភាពប្រវត្តិរូប</string>
 
         <!-- TODO: Remove or change this placeholder text -->
         <string name="hello_blank_fragment">Hello blank fragment</string>

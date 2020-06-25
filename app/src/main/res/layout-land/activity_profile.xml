@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorAccent">
+
+    <include
+        android:id="@+id/profile_appbar"
+        layout="@layout/activity_appbar"
+        />
+
+    <RelativeLayout
+        android:layout_below="@+id/profile_appbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--        Cover Image-->
+        <FrameLayout
+            android:id="@+id/profile_cover_image"
+            android:layout_width="match_parent"
+            android:layout_height="150dp">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/profile_cover"
+                android:scaleType="fitXY"/>
+
+            <Button
+                android:layout_width="78dp"
+                android:layout_height="22dp"
+                android:layout_gravity="end|bottom"
+                android:background="@drawable/button_shape"
+                android:text="Edit Text"
+                android:textSize="9dp"
+                android:textColor="@color/colorAccent"/>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_marginLeft="15sp"
+                android:layout_marginBottom="-40dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/screenshot"
+                android:layout_gravity="bottom" />
+        </FrameLayout>
+
+        <!--        User Summary-->
+        <LinearLayout
+            android:id="@+id/profile_user_summary"
+            android:layout_below="@+id/profile_cover_image"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:orientation="vertical">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3">
+
+            </FrameLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="6">
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3">
+
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>
