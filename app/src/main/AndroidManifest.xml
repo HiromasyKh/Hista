@@ -34,7 +34,6 @@
         </activity>
         <activity android:name=".Activity.WelcomeActivity" />
         <activity android:name=".Activity.ProfileActivity" />
-        <activity android:name=".Activity.ContactActivity" />
     </application>
 
 </manifest>
