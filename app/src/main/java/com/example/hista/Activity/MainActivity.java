@@ -17,7 +17,6 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.hista.Adapter.TabAccessAdapter;
 import com.example.hista.R;
-import com.facebook.drawee.backends.pipeline.Fresco;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.tabs.TabLayout;
@@ -101,13 +100,6 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 
-    private void SendUserToSettingActivity() {
-        Intent settingIntent = new Intent(MainActivity.this, SettingActivity.class);
-        settingIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(settingIntent);
-        finish();
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
@@ -124,9 +116,6 @@ public class MainActivity extends AppCompatActivity {
         }
         if (item.getItemId() == R.id.profile_option_menu) {
             // do profile
-        }
-        if (item.getItemId() == R.id.setting_option_menu) {
-            SendUserToSettingActivity();
         }
         if (item.getItemId() == R.id.create_group_menu) {
             RequestNewGroup();
