@@ -53,7 +53,7 @@ public class GroupChatActivity extends AppCompatActivity {
 
         authUser = FirebaseAuth.getInstance();
         currentUID = authUser.getCurrentUser().getUid();
-        userReference = FirebaseDatabase.getInstance().getReference().child("Users");
+        userReference = FirebaseDatabase.getInstance().getReference().child("ShortUserInfo");
         groupReference = FirebaseDatabase.getInstance().getReference().child("Groups").child(currentGroupName);
 
         InitializeFields();

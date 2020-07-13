@@ -1,15 +1,15 @@
 package com.example.hista.Model;
 
-public class Users {
+public class ShortUserInfo {
     private String name;
     private String status;
     private String image;
 
-    public Users() {
+    public ShortUserInfo() {
 
     }
 
-    public Users(String name, String status, String image) {
+    public ShortUserInfo(String name, String status, String image) {
         this.name = name;
         this.status = status;
         this.image = image;

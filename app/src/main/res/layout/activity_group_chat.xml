@@ -10,58 +10,66 @@
         android:id="@+id/group_chat_appbar"
         layout="@layout/activity_appbar"/>
 
-    <ScrollView
-        android:id="@+id/group_chat_scroll_view"
+    <LinearLayout
+        android:id="@+id/group_chat_content"
+        android:layout_below="@+id/group_chat_appbar"
         android:layout_width="match_parent"
-        android:layout_height="730dp"
-        android:layout_below="@+id/group_chat_appbar">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <LinearLayout
+
+
+        <ScrollView
+            android:id="@+id/group_chat_scroll_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="0dp"
+            android:layout_weight="0.95">
 
-            <TextView
-                android:id="@+id/group_chat_txt_display"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="50dp"
-                android:background="@color/colorPrimary"
-                android:padding="10dp"
-                android:textAllCaps="false"
-                android:textColor="@color/colorAccent"
-                android:textSize="20sp" />
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/group_chat_txt_display"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="50dp"
+                    android:background="@color/colorPrimary"
+                    android:padding="10dp"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+        </ScrollView>
+
+        <LinearLayout
+            android:id="@+id/group_chat_edit_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:orientation="horizontal"
+            android:background="@color/colorAccent">
+
+            <EditText
+                android:id="@+id/group_chat_input_message"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="33.3"
+                android:hint="@string/write_sth"
+                android:inputType="text"
+                android:padding="17dp" />
+
+            <ImageButton
+                android:id="@+id/group_chat_send_msg_btn"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:background="@color/colorAccent"
+                android:contentDescription="@string/send_btn_des"
+                android:src="@drawable/ic_send_carolina_blue_50dp" />
         </LinearLayout>
-
-    </ScrollView>
-
-    <LinearLayout
-        android:id="@+id/group_chat_edit_detail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/group_chat_appbar"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="97dp"
-        android:gravity="bottom"
-        android:orientation="horizontal"
-        android:background="@color/colorAccent">
-
-        <EditText
-            android:id="@+id/group_chat_input_message"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="33.3"
-            android:hint="@string/write_sth"
-            android:inputType="text"
-            android:padding="17dp" />
-
-        <ImageButton
-            android:id="@+id/group_chat_send_msg_btn"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:background="@color/colorAccent"
-            android:contentDescription="@string/send_btn_des"
-            android:src="@drawable/ic_send_carolina_blue_50dp" />
     </LinearLayout>
+
 
 </RelativeLayout>

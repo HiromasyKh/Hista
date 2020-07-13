@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:name=".Activity.MyApp"
@@ -16,6 +17,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_map_api_key" />
 
         <activity android:name=".Activity.PhoneLoginActivity" />
         <activity android:name=".Activity.GroupChatActivity" />
@@ -33,7 +38,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activity.WelcomeActivity" />
+        <activity android:name=".Activity.ImageSlideShow2Activity" />
+        <activity android:name=".Activity.UserLocationActivity" />
         <activity android:name=".Activity.ProfileActivity" />
+        <activity android:name=".Activity.FindFriendActivity"
+            android:parentActivityName=".Activity.MainActivity"/>
     </application>
 
 </manifest>

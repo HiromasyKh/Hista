@@ -2,6 +2,8 @@
     <resources>
         <string name="app_name">Hista</string>
 
+        <string name="app_name_location">Hista ទីតាំង</string>
+
         <!--    @menu/top_app_bar-->
         <string name="favorite">ចំណូលចិត្ត</string>
         <string name="description_favorite">Description Favorite</string>

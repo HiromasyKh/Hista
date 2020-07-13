@@ -11,7 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.hista.Model.Users;
+import com.example.hista.Model.ShortUserInfo;
 import com.example.hista.R;
 import com.example.hista.ViewHolder.FriendViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -54,7 +54,7 @@ public class FriendFragment extends Fragment {
         firebaseAuth = FirebaseAuth.getInstance();
         currentUserID = firebaseAuth.getCurrentUser().getUid();
         friendReference = FirebaseDatabase.getInstance().getReference().child("Chats").child(currentUserID);
-        userReference = FirebaseDatabase.getInstance().getReference().child("Users");
+        userReference = FirebaseDatabase.getInstance().getReference().child("ShortUserInfo");
 
         return friendsListView;
     }
@@ -63,14 +63,14 @@ public class FriendFragment extends Fragment {
     public void onStart() {
         super.onStart();
         FirebaseRecyclerOptions options =
-                new FirebaseRecyclerOptions.Builder<Users>()
-                        .setQuery(friendReference, Users.class)
+                new FirebaseRecyclerOptions.Builder<ShortUserInfo>()
+                        .setQuery(friendReference, ShortUserInfo.class)
                         .build();
 
-        FirebaseRecyclerAdapter<Users, FriendViewHolder> adapter =
-                new FirebaseRecyclerAdapter<Users, FriendViewHolder>(options) {
+        FirebaseRecyclerAdapter<ShortUserInfo, FriendViewHolder> adapter =
+                new FirebaseRecyclerAdapter<ShortUserInfo, FriendViewHolder>(options) {
                     @Override
-                    protected void onBindViewHolder(@NonNull final FriendViewHolder friendViewHolder, int i, @NonNull Users users) {
+                    protected void onBindViewHolder(@NonNull final FriendViewHolder friendViewHolder, int i, @NonNull ShortUserInfo users) {
                         String userId = getRef(i).getKey();
 
                         userReference.child(userId).addValueEventListener(new ValueEventListener() {
