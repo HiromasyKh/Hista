@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
     private FirebaseUser currentUser;
     private FirebaseAuth authUser;
+
     private DatabaseReference rootReference;
 
     @Override
@@ -48,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
 
         authUser = FirebaseAuth.getInstance();
         currentUser = authUser.getCurrentUser();
+
+
         rootReference = FirebaseDatabase.getInstance().getReference();
 
         toolbar = (Toolbar) findViewById(R.id.welcome_appbar);
@@ -74,15 +77,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void VerifyUserExistence() {
-        String currentUID = authUser.getCurrentUser().getUid();
+        final String currentUserUID = authUser.getCurrentUser().getUid();
 
-        rootReference.child(currentUID).addValueEventListener(new ValueEventListener() {
+        rootReference.child("Users").child(currentUserUID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.child("name").exists()) {
+                if ((dataSnapshot.child("name").exists())) {
                     Toast.makeText(MainActivity.this, "Welcome", Toast.LENGTH_LONG).show();
                 } else {
-//                    SendUserToSettingActivity();
+//                    Toast.makeText(MainActivity.this, dataSnapshot.child("name").getValue().toString(), Toast.LENGTH_LONG).show();
+                    SendUserToProfileActivity();
                 }
             }
 
@@ -100,6 +104,16 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 
+    private void SendUserToFindFriendActivity() {
+        Intent findFriendIntent = new Intent(MainActivity.this, FindFriendActivity.class);
+        startActivity(findFriendIntent);
+    }
+
+    private void SendUserToProfileActivity() {
+        Intent profileIntent = new Intent(MainActivity.this, ProfileActivity.class);
+        startActivity(profileIntent);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
@@ -112,10 +126,10 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         super.onOptionsItemSelected(item);
         if (item.getItemId() == R.id.find_friends_option_menu) {
-            // do find friends
+            SendUserToFindFriendActivity();
         }
         if (item.getItemId() == R.id.profile_option_menu) {
-            // do profile
+            SendUserToProfileActivity();
         }
         if (item.getItemId() == R.id.create_group_menu) {
             RequestNewGroup();

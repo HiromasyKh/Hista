@@ -1,6 +1,7 @@
 package com.example.hista.Fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,16 +15,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
-import android.widget.Toast;
+import android.widget.TextView;
 
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-import com.example.hista.Adapter.ChatAdapter;
-import com.example.hista.Model.Chat;
+import com.example.hista.Activity.ChatActivity;
+import com.example.hista.Activity.FindFriendActivity;
+import com.example.hista.Model.ShortUserInfo;
 import com.example.hista.R;
-import com.google.gson.Gson;
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 
 /**
@@ -31,8 +38,13 @@ import com.google.gson.Gson;
  */
 public class ChatFragment extends Fragment {
 
-    private RecyclerView recyclerView;
+    private View privateChatView;
+    private RecyclerView chatList;
     private ProgressBar progressBar;
+
+    private DatabaseReference chatReference, userReference;
+    private FirebaseAuth auth;
+    private String currentUserID;
 
 
     public ChatFragment() {
@@ -43,68 +55,104 @@ public class ChatFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.fragment_chat, container, false);
-        return rootView;
+        privateChatView = inflater.inflate(R.layout.fragment_chat, container, false);
+
+        auth = FirebaseAuth.getInstance();
+        currentUserID = auth.getCurrentUser().getUid();
+        chatReference = FirebaseDatabase.getInstance().getReference().child("Contacts").child(currentUserID);
+        userReference = FirebaseDatabase.getInstance().getReference().child("Users");
+
+        chatList = (RecyclerView) privateChatView.findViewById(R.id.private_chat_list);
+        chatList.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        return privateChatView;
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+    public void onStart() {
+        super.onStart();
 
-        // Reference subviews
-        recyclerView = view.findViewById(R.id.recycler_view);
-        progressBar = view.findViewById(R.id.progress_bar);
+        FirebaseRecyclerOptions<ShortUserInfo> options =
+                new FirebaseRecyclerOptions.Builder<ShortUserInfo>()
+                .setQuery(chatReference, ShortUserInfo.class)
+                .build();
 
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
-        recyclerView.setLayoutManager(layoutManager);
+        FirebaseRecyclerAdapter<ShortUserInfo, ChatViewHolder> adapter =
+                new FirebaseRecyclerAdapter<ShortUserInfo, ChatViewHolder>(options) {
+                    @Override
+                    protected void onBindViewHolder(@NonNull final ChatViewHolder chatViewHolder, int i, @NonNull ShortUserInfo shortUserInfo) {
+                        final String userIDs = getRef(i).getKey();
+                        final String[] retImage = {"default_image"};
 
-        loadChats();
+                        userReference.child(userIDs).addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                if (dataSnapshot.exists()) {
+                                    if (dataSnapshot.hasChild("image")) {
+                                        retImage[0] = dataSnapshot.child("image").getValue().toString();
+
+                                        Picasso.get().load(retImage[0]).placeholder(R.drawable.profile_image).into(chatViewHolder.profileImage);
+                                    }
+
+                                    final String retName = dataSnapshot.child("name").getValue().toString();
+                                    final String retStatus = dataSnapshot.child("status").getValue().toString();
+
+                                    chatViewHolder.userName.setText(retName);
+                                    chatViewHolder.userStatus.setText("Last Seen: " + " Date: Times");
+
+                                    chatViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            Intent chatIntent = new Intent(getContext(), ChatActivity.class);
+                                            chatIntent.putExtra("visitUserID", userIDs);
+                                            chatIntent.putExtra("visitUserName", retName);
+                                            chatIntent.putExtra("visitUserImage", retImage[0]);
+                                            startActivity(chatIntent);
+                                        }
+                                    });
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
+                    }
+
+                    @NonNull
+                    @Override
+                    public ChatViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_find_friend, parent, false);
+                        ChatViewHolder chatViewHolder = new ChatViewHolder(view);
+                        return chatViewHolder;
+                    }
+                };
+        chatList.setAdapter(adapter);
+        adapter.startListening();
     }
 
-    private void loadChats() {
+    public static class ChatViewHolder extends RecyclerView.ViewHolder {
 
-        // Show loading
-        showLoading(true);
+        SimpleDraweeView profileImage;
+        TextView userName, userStatus;
 
-        // Load email from the server using Volley library
-        String url = "http://10.0.2.2:8080/server/chat.php";
+        public ChatViewHolder(@NonNull View itemView) {
+            super(itemView);
 
-        // Create a request
-        StringRequest request = new StringRequest(url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                // Convert json string to array of Email using Gson
-                Gson gson = new Gson();
-                Chat[] chats = gson.fromJson(response, Chat[].class);
-                // Create and set an adapter
-                ChatAdapter adapter = new ChatAdapter(chats);
-                recyclerView.setAdapter(adapter);
-
-                // Hide the progress bar and show recycler view
-                showLoading(false);
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getActivity(), "Something error while loading data from the server", Toast.LENGTH_LONG).show();
-                Log.d("piuecom", "Load data error: " + error.getMessage());
-                // Hide the progress bar and show recycler view
-                showLoading(false);
-            }
-        });
-
-        // Add the request to the Queue
-        Volley.newRequestQueue(getActivity()).add(request);
-
+            profileImage = itemView.findViewById(R.id.find_friend_user_image);
+            userName = itemView.findViewById(R.id.find_friend_user_name);
+            userStatus = itemView.findViewById(R.id.find_friend_user_status);
+        }
     }
 
     private void showLoading(boolean state){
         if(state){
-            recyclerView.setVisibility(View.INVISIBLE);
+            chatList.setVisibility(View.INVISIBLE);
             progressBar.setVisibility(View.VISIBLE);
         } else {
             progressBar.setVisibility(View.INVISIBLE);
-            recyclerView.setVisibility(View.VISIBLE);
+            chatList.setVisibility(View.VISIBLE);
         }
     }
 }

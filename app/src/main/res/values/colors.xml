@@ -3,6 +3,7 @@
     <color name="colorPrimary">#2d9de5</color>
     <color name="colorPrimaryDark">#2d9de5</color>
     <color name="colorAccent">#ffffff</color>
+    <color name="colorDecline">#D9594C</color>
 
     <color name="borderColor">#aaaaaa</color>
 </resources>

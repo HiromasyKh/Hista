@@ -10,7 +10,7 @@
         android:layout_gravity="center" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
+        android:id="@+id/private_chat_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

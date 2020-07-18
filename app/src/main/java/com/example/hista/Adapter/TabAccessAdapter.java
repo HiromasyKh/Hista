@@ -10,6 +10,7 @@ import com.example.hista.Fragments.ChatFragment;
 import com.example.hista.Fragments.GroupFragment;
 import com.example.hista.Fragments.ProfileFragment;
 import com.example.hista.Fragments.FriendFragment;
+import com.example.hista.Fragments.RequestFragment;
 
 public class TabAccessAdapter extends FragmentPagerAdapter {
     public TabAccessAdapter(@NonNull FragmentManager fm) {
@@ -30,8 +31,8 @@ public class TabAccessAdapter extends FragmentPagerAdapter {
                 FriendFragment friendFragment = new FriendFragment();
                 return friendFragment;
             case 3:
-                ProfileFragment profileFragment = new ProfileFragment();
-                return profileFragment;
+                RequestFragment requestFragment = new RequestFragment();
+                return requestFragment;
             default:
                 return null;
         }
@@ -53,7 +54,7 @@ public class TabAccessAdapter extends FragmentPagerAdapter {
             case 2:
                 return "Friend";
             case 3:
-                return "Profile";
+                return "Requests";
             default:
                 return null;
         }

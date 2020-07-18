@@ -53,7 +53,7 @@ public class GroupChatActivity extends AppCompatActivity {
 
         authUser = FirebaseAuth.getInstance();
         currentUID = authUser.getCurrentUser().getUid();
-        userReference = FirebaseDatabase.getInstance().getReference().child("ShortUserInfo");
+        userReference = FirebaseDatabase.getInstance().getReference().child("Users");
         groupReference = FirebaseDatabase.getInstance().getReference().child("Groups").child(currentGroupName);
 
         InitializeFields();
@@ -167,10 +167,10 @@ public class GroupChatActivity extends AppCompatActivity {
         Iterator iterator = dataSnapshot.getChildren().iterator();
 
         while(iterator.hasNext()) {
-            String msgDate = (String) ((DataSnapshot) iterator.next()).getValue().toString();
-            String msg = (String) ((DataSnapshot) iterator.next()).getValue().toString();
-            String msgOwner = (String) ((DataSnapshot) iterator.next()).getValue().toString();
-            String msgTime = (String) ((DataSnapshot) iterator.next()).getValue().toString();
+            String msgDate = (String) ((DataSnapshot) iterator.next()).getValue();
+            String msg = (String) ((DataSnapshot) iterator.next()).getValue();
+            String msgOwner = (String) ((DataSnapshot) iterator.next()).getValue();
+            String msgTime = (String) ((DataSnapshot) iterator.next()).getValue();
 
             textMsg.append(msgOwner + ": \n" + msg + "\n" + msgTime + "  " + msgDate + "\n\n\n");
 

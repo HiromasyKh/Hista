@@ -4,48 +4,65 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorAccent"
-    android:orientation="vertical"
-    android:gravity="center">
+    android:orientation="vertical">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="250dp"
         android:layout_height="250dp"
-        android:layout_marginTop="20dp"
-        android:id="@+id/profile_user_image"
+        android:layout_marginTop="100dp"
+        android:id="@+id/friend_profile_user_image"
         android:src="@drawable/profile_image"
         app:civ_border_width="1dp"
         app:civ_border_color="@color/colorPrimary"
         android:layout_gravity="center"/>
 
-    <EditText
-        android:id="@+id/profile_user_name"
+    <TextView
+        android:id="@+id/friend_profile_user_name"
         android:layout_margin="20dp"
+        android:paddingTop="7dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
+        android:layout_height="33dp"
         android:hint="@string/username"
         android:textAlignment="center"
+        android:textStyle="bold"
+        android:textSize="23dp"
         android:gravity="center_horizontal" />
 
-    <EditText
-        android:id="@+id/profile_user_status"
+    <TextView
+        android:id="@+id/friend_profile_user_status"
         android:layout_margin="20dp"
+        android:paddingTop="7dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="33dp"
         android:inputType="textMultiLine"
         android:hint="@string/profile_status"
         android:textAlignment="center"
         android:gravity="center_horizontal" />
 
     <Button
-        android:id="@+id/profile_user_update_btn"
+        android:id="@+id/friend_profile_user_update_btn"
         android:layout_gravity="center"
-        android:layout_width="100dp"
+        android:padding="10dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
-        android:hint="@string/update_profile"
+        android:hint="@string/send_message"
         android:textAlignment="center"
         android:textColor="@color/colorAccent"
         android:textColorHint="@color/colorAccent"/>
+
+    <Button
+        android:id="@+id/friend_profile_user_decline_btn"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:padding="10dp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:hint="@string/cancel_request"
+        android:textAlignment="center"
+        android:textColor="@color/colorAccent"
+        android:textColorHint="@color/colorAccent"
+        android:visibility="invisible"/>
 
 </LinearLayout>
